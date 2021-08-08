@@ -7,13 +7,13 @@ function clearOut() {
     Object.keys(jsonText).forEach(key => {
         var searchFlag = false;
         words.forEach(word => {
-                if (!word.localeCompare(key)) {
+            if (!word.localeCompare(key)) {
                 //console.log(word + " " + key + " => " + !word.localeCompare(key));
                 searchFlag = true;
             }
         });
         if (!searchFlag) {
-            removedKeys[key]=jsonText[key]
+            removedKeys[key] = jsonText[key]
             // removedKeys.push(key,JSON.stringify(jsonText[key]));
             delete jsonText[key];
         }
@@ -24,14 +24,14 @@ function clearOut() {
 
     $('#resultTextArea').val(JSON.stringify(jsonText, undefined, 4))
     $('#deletedTextArea').val(JSON.stringify(removedKeys, undefined, 4))
-    $('body,html').animate({scrollTop: 730}, 100); 
+    $('body,html').animate({ scrollTop: 730 }, 100);
 }
-document.querySelector("#resultTextArea").onclick = function(){
+document.querySelector("#resultTextArea").onclick = function () {
     document.querySelector("#resultTextArea").select();
     document.execCommand('copy');
 }
 
-document.querySelector("#deletedTextArea").onclick = function(){
+document.querySelector("#deletedTextArea").onclick = function () {
     document.querySelector("#deletedTextArea").select();
     document.execCommand('copy');
 }
